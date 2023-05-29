@@ -3,15 +3,6 @@ import threading
 import sys
 
 
-#client
-
-            #set nickname
-            #connect to the server by IP address
-            #send text messages to other connected clients
-            #Chat should support several channels
-            #Chat should support private messages
-            #Client should show messages from other clients
-            #Client should be able to disconnect from the server
 
 
 # Notes:
@@ -65,8 +56,8 @@ def sendMessages(connection):
             connection.send(message.encode('utf-8'))
         # f"{nickname}: {message}" # not need as server add nickname to message
 
-def joinChannel(channels):
-    return channels
+#def joinChannel(channels):
+#    return channels
 
 nickname = setNickname()
 while True:

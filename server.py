@@ -4,11 +4,6 @@ import socket
 
 # docs in comments reference to python.org documentation about libraries(socket and threading)
 
-# NOTES:
-# Every client probably should have own instance
-# Thus class ClientConnection is needed
-# Include things like: nickname, ip, socket?, channels[] etc
-# ooorrr/and instead each feature is on own thread 
 
 #clients = []
 clients = {} #dictionary is now in format 'connection': 'nickname'
@@ -45,7 +40,7 @@ def sendPrivate(sender, receipt, message):
 
 def joinChannel(clientConnection, channel):
     channelArray = channels.get(channel)
-    print(channels)
+    #print(channels)
     channelArray.append(clients.get(clientConnection))
     channels.update({channel: channelArray})
     print(channels)
@@ -103,9 +98,7 @@ def handling(clientConnection):
                         pass
         except:
             break 
-    #clientConnection.close
-    #clients.pop(clientConnection)
-    #notifyLeaving(clientConnection)
+
     notifyLeaving(clientConnection)
     nickname = clients[clientConnection]
     del clients[clientConnection]
